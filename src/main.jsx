@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useEffect, useMemo, useState } from 'react'
 import { createRoot } from 'react-dom/client'
-import { BrowserRouter, Link, NavLink, Route, Routes, useLocation, useNavigate } from 'react-router-dom'
+import { HashRouter, Link, NavLink, Route, Routes, useLocation, useNavigate } from 'react-router-dom'
 import { ArrowDown, ArrowLeft, ArrowRight, ArrowUpRight, Check, ChevronDown, Clock3, Coffee, Instagram, Leaf, MapPin, Menu as MenuIcon, Minus, Plus, ShoppingBag, Sparkles, Trash2, X } from 'lucide-react'
 import './styles.css'
 
@@ -159,6 +159,6 @@ function ScrollToTop() { const { pathname } = useLocation(); useEffect(() => {
   });
 }, [pathname]); return null }
 function App() {
-  return <CartProvider><BrowserRouter><ScrollToTop/><Routes><Route path="/" element={<Home/>}/><Route path="/menu" element={<MenuPage/>}/><Route path="/about" element={<AboutPage/>}/><Route path="/contacts" element={<ContactsPage/>}/><Route path="/cart" element={<CartPage/>}/><Route path="*" element={<Layout><section className="success-page container"><h1>Страница не найдена.</h1><Link to="/" className="btn btn-dark">На главную</Link></section></Layout>}/></Routes></BrowserRouter></CartProvider>
+  return <CartProvider><HashRouter><ScrollToTop/><Routes><Route path="/" element={<Home/>}/><Route path="/menu" element={<MenuPage/>}/><Route path="/about" element={<AboutPage/>}/><Route path="/contacts" element={<ContactsPage/>}/><Route path="/cart" element={<CartPage/>}/><Route path="*" element={<Layout><section className="success-page container"><h1>Страница не найдена.</h1><Link to="/" className="btn btn-dark">На главную</Link></section></Layout>}/></Routes></HashRouter></CartProvider>
 }
 createRoot(document.getElementById('root')).render(<React.StrictMode><App/></React.StrictMode>)
